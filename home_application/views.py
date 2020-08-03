@@ -18,7 +18,8 @@ def home(request):
     首页
     """
     result, biz_list, message = get_biz_list(request)
-    return render(request, 'home_application/execute.html',{'biz_list': biz_list})
+    scripts = Script.objects.all()
+    return render(request, 'home_application/execute.html',{'biz_list': biz_list,'scripts':scripts})
 
 def show_history(request):
     """

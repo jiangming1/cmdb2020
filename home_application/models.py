@@ -11,6 +11,7 @@ class Script(models.Model):
 
     def __str__(self):
         return self.name
+
 class Operation(models.Model):
     user = models.CharField(max_length=50)
     start_time = models.DateTimeField(auto_now_add=True)
