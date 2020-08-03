@@ -8,7 +8,7 @@ import datetime
 import json
 import time
 from celery.task import task
-from common.mymako import render_mako_context,render_mako_tostring,render_json
+#from common.mymako import render_mako_context,render_mako_tostring,render_json
 from home_application.models import Script,Operation
 
 # 开发框架中通过中间件默认是需要登录态的，如有不需要登录的，可添加装饰器login_exempt
