@@ -29,6 +29,9 @@
     <!-- 数据埋点统计 -->
     <script src="http://magicbox.bk.tencent.com/static_api/analysis.js"></script>
     <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+
+<link href="https://magicbox.bk.tencent.com/static_api/v3/assets/artDialog-6.0.4/css/ui-dialog.css" rel="stylesheet">
+<script src="https://magicbox.bk.tencent.com/static_api/v3/assets/artDialog-6.0.4/dist/dialog-min.js"></script>
     <!--[if lt IE 9]><script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/html5shiv.min.js"></script><script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/respond.min.js"></script><![endif]-->
 </head>
 
@@ -101,10 +104,9 @@
                         <label class="col-sm-3 control-label bk-lh30 pt0">选择脚本：</label>
                         <div class="col-sm-9">
                             <select name="" id="" class="form-control bk-valign-top">
-                                <option value="选择项1">选择项1</option>
-                                <option value="选择项2">选择项2</option>
-                                <option value="选择项3">选择项3</option>
-                                <option value="选择项4">选择项4</option>
+                                 {% for script in scripts %}
+                                <option value="{{ script.id }}">{{ script.name }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
@@ -116,7 +118,7 @@
                     <form class="form-horizontal">
                         <div class="form-group clearfix">
                             <div class="col-sm-9 col-sm-offset-3">
-                                <button type="button" class="king-btn mr10  king-success">执行</button>
+                                <button type="button" class="king-btn mr10  king-success" id="submit">执行</button>
                                 <button type="button" class="king-btn king-default ">取消</button>
                             </div>
                         </div>
@@ -144,79 +146,7 @@
                                 <th>操作</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td style="width: 70px;">1</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">2</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">3</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">4</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">5</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 70px;">6</td>
-                                <td style="width: 15%;">Ravi Kumar</td>
-                                <td style="width: 15%;">India</td>
-                                <td style="width: 15%;">23/12/2012</td>
-                                <td style="width: 15%;">Paid</td>
-                                <td>
-                                    <button class="btn btn-xs btn-success"> <i class="glyphicon glyphicon-ok"></i> </button>
-                                    <button class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i> </button>
-                                    <button class="btn btn-xs btn-danger"> <i class="glyphicon glyphicon-remove"></i> </button>
-                                </td>
-                            </tr>
+                        <tbody id="host-tbody">
                         </tbody>
                     </table>
                     <template id="header_tpl_15854108112332">
@@ -249,37 +179,45 @@
         </div>
     </div>
     <script>
-        $(function(){
-                function renderTpl(str, cfg) {
-                    var re = /(#(.+?)#)/g;
+function submitSuccess() {
+    var d = dialog({
+        width: 260,
+        title: '操作提示',
+        ok: function () {
+            location.href = "{{ SITE_URL }}history/"
+        },
+        okValue: '查看执行结果',
+        content: '<div class="king-notice-box king-notice-success"><p class="king-notice-text">任务提交成功！</p></div>',
+        cancelValue: '继续执行任务',
+        cancel: function () {
+            // do something
+        }
+    });
+    d.showModal();
+}
 
-                    return str.replace(re, function() {
-                        var val = cfg[arguments[2]]+'';
-                        if(typeof val == 'undefined') {
-                            val = '';
-                        }
-                        return val;
-                    });
-                }
 
-                // 异步请求后台数据
-                $.ajax({
-                    url: 'https://magicbox.bk.tencent.com/static_api/v3/components/table7/data.json',
-                    type: 'GET',
-                    success: function(res){
-                        var _html = ' ';
-                        var list = res.items;
-                        var tpl = $('#tpl_15854108112332').html();
-                        var headerTpl =  $('#header_tpl_15854108112332').html();
-                        for (var i=0,len=list.length; i < len; i++){
-                            var item = list[i];
-                            _html += renderTpl(tpl, item)
-                        }
-                        $('.ranger-box2 tbody').html(_html);
-                        $('.ranger-box2 thead').html(renderTpl(headerTpl,res.catalogues));
-                    }
-                });
-            });
+function get_host() {
+    $.ajax({
+        url: '{{ SITE_URL }}api/get_hosts/',
+        type: 'GET',
+        data: {"biz_id": $("#biz_id").val(), "script_type": $("#script_type").val()},
+        success: function (res) {
+            if (res.result) {
+                $('#table_demo2 tbody').html(res.data)
+            } else {
+                alert(res.message);
+            }
+        }
+    });
+}
+
+$(function(){
+get_host();
+$("#biz_id").change(function(){
+get_host();
+})
+});
     </script>
 </body>
 
